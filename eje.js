@@ -1,40 +1,23 @@
+function calculadora (parcial1, parcial2, pro, lab) {
+  var parcial1 = parseFloat(document.getElementById('p1').value)
+  var parcial2 = parseFloat(document.getElementById('p2').value)
+  var lab = parseFloat(document.getElementById('lab').value)
+  var pro = parseFloat(document.getElementById('pro').value)
 
-function calculadora(parcial1,parcial2,pro,lab){
+  var promedio_parciales = (parcial2 + parcial1) / 2
+  var promedio_total = (parcial1 + parcial2 + lab + pro) /  4
+  var respuesta = ''
+  if (promedio_parciales < 3) {
+    promedio_total = parcial1 * 0.3 + parcial2 * 0.3 + lab * 0.2 + pro * 0.2
+  } else if (promedio_parciales > 4 && lab > 4.5 && pro < lab) {
+    lab = pro
+    promedio_total = parcial1 * 0.25 + parcial2 * 0.25 + lab * 0.25 + pro * 0.25
+  }
+  if (promedio_total > 3) {
+    respuesta = 'Su nota final es ' + promedio_total + ' Aprobó'
+  } else if (promedio_total < 3) {
+    respuesta = 'Su nota final es ' + promedio_total + ' Reprobó'
+  }
 
-var parcial1 = document.getElementById("p1").value;
-var parcial2 = document.getElementById("p2").value;
-var lab = document.getElementById("lab").value;
-var pro = document.getElementById("pro").value;
-
-var promedio_parciales = (parcial2 + parcial1) / 2;
-var promedio_total = (parcial1 + parcial2 + lab + pro) / 4;
-
-
-if (promedio_parciales < 3) {
-    alert( " Su promedio de parciales de " + (promedio_total = parcial1 * .30 + parcial2 * .30 + lab * .20 + pro * .20 ) + "puntos, es menor a 3. ");
+  document.getElementById('resultado').innerHTML = respuesta
 }
-else if(promedio_parciales > 4 && lab > 4.5 && pro < lab){
-    alert( lab = pro);
-}
-if(promedio_total >3){
-    alert(" Su nota final es " + promedio_total + " Aprobó");
-
-}
-else if (promedio_total <3){
-    alert(" Su nota final es " + promedio_total + " Reprobó");
-}
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
